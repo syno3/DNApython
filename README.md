@@ -37,10 +37,3 @@ The `translate` function is used in [`genome.py`](genome.py) to identify and ann
 
 ### Folding proteins
 The [OpenMM](http://openmm.org/) toolkit is used for molecular simulation of protein folding in [`fold.py`](fold.py).
-
-## :bulb: Work to be done
-- Automatic extraction of genes from different coronaviruses
-- Good multisequence compare tool
-- Molecular dynamics?
-- Secondary Structure prediction on orf1a?
-
