@@ -26,11 +26,11 @@ no equivalent | [execution](https://en.wikipedia.org/wiki/Execution_(computing))
 
 
 ## :wrench: Progress
-### Downloading the ANY DNA genome
+### Downloading any DNA genome
 [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) is the NIH genetic sequence database, an annotated collection of all publicly available DNA and RNA sequences.
 
 ### Translating RNA to proteins
-[`lib.py`](lib.py) contains a function `translate` that converts an RNA sequence to a chain of [amino acids](https://en.wikipedia.org/wiki/Amino_acid). 
+[`translate.py`](translate.py) contains a function `translate` that converts an RNA sequence to a chain of [amino acids](https://en.wikipedia.org/wiki/Amino_acid). 
 
 ### Annotating functions
 The `translate` function is used in [`genome.py`](genome.py) to identify and annotate functions for all proteins encoded by the genome.
