@@ -17,7 +17,7 @@ try:
 except Exception as e:
     print(e)
 
-class genome:
+class Genome:
     def __init__(self):
         pass
     def load_data(self, data, format='fasta'):
@@ -46,5 +46,5 @@ class genome:
         return DNA, mRNA, amino
 
 if __name__ == '__main__':
-    Genome = genome()
+    Genome = Genome()
     Genome.load_data('MN908947.fna')
