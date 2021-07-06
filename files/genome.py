@@ -6,7 +6,6 @@ try:
     # IMPORTING PLOTTING MODULES
     import matplotlib.pyplot as plt
     from matplotlib.pyplot import table
-    import seaborn as sns
     # IMPORTING BIOPYTHON MODULES
     import py3Dmol
     from Bio import SeqIO
@@ -35,15 +34,15 @@ class Genome:
         """
 
         GenomeSequence=SeqIO.read(data, format)
-        print(GenomeSequence.id)
         
         DNA = GenomeSequence.seq
         mRNA = DNA.transcribe()
-        ## translating MRNA to amino acid
         amino = mRNA.translate(table=1, cds=False)
 
+        return GenomeSequence, DNA, mRNA, amino
 
-        return DNA, mRNA, amino
+    def protein_dataframe():
+        pass
 
 if __name__ == '__main__':
     Genome = Genome()

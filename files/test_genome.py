@@ -1,7 +1,7 @@
 try:
     import pytest
-    from files.genome import Genome
-
+    import genome
+    
 except Exception as e:
     print(e)
 
