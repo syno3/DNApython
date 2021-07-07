@@ -1,6 +1,6 @@
 try:
     import pytest
-    import genome
+    from files.src import genome
     
 except Exception as e:
     print(e)
