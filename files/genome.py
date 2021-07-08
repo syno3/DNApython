@@ -52,18 +52,19 @@ class Genome:
         return amino
 
     @staticmethod
-    def protein_dataframe():
-        """ 
+    def protein_dataframe(amino):
+        """
         take the data from amino in variable load_data, use split(), and store in protein variable.
         convert the data to variable and return df
-        
+
         """
-        amino = load_data()
-        Proteins = amino.split('*')
-        df = pd.DataFrame(Proteins)
+        proteins = amino.split('*')
+        df = pd.DataFrame(proteins)
+
+        print(df)
 
         return df
+
 if __name__ == '__main__':
     Genome = Genome()
     Genome.load_data('MN908947.fna')
-    Genome.protein_dataframe()
