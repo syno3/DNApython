@@ -5,5 +5,6 @@ try:
 except Exception as e:
     print(e)
 
+
 def test_load_data():
-    assert True
+    assert genome.load_data

@@ -1,8 +1,9 @@
 from typing import Sequence
+
 try:
     # IMPORTING DATA ANALYSIS LIBRARIES
     import pandas as pd
-    #import numpy as np (will fix bug)
+    # import numpy as np (will fix bug)
     # IMPORTING PLOTTING MODULES
     import matplotlib.pyplot as plt
     from matplotlib.pyplot import table
@@ -13,37 +14,56 @@ try:
     from Bio.SeqUtils import ProtParam
     from datetime import time
 
+    from Bio.Data import CodonTable
+
+
 except Exception as e:
     print(e)
+
 
 class Genome:
     def __init__(self):
         pass
-    def load_data(self, data, format='fasta'):
-        """ 
+
+    @staticmethod
+    def load_data(data, Format='fasta'):
+        """
         Use SeqIO.read to load the fna file
 
-        Get DNA sequence using .seq function (ie) DNA = GenomeSequence.seq,
+        Get dna sequence using .seq function (ie) dna = GenomeSequence.seq,
 
-        Transcribe the DNA sequence to mRNA using the .transcribe (ie.) mRNA = DNA.transcribe()
+        Transcribe the dna sequence to m_rna using the .transcribe (ie.) m_rna = dna.transcribe()
 
-        Getting the amino acids from the mRNA using .translate (ie.) amino = mRNA.translate(table=1, cds=False)
+        Getting the amino acids from the m_rna using .translate (ie.) amino = m_rna.translate(table=1, cds=False)
 
-        return DNA, mRNA, amino acids
+        return dna, m_rna, amino acids
 
         """
 
-        GenomeSequence=SeqIO.read(data, format)
-        
-        DNA = GenomeSequence.seq
-        mRNA = DNA.transcribe()
-        amino = mRNA.translate(table=1, cds=False)
+        genome_sequence = SeqIO.read(data, Format)
 
-        return GenomeSequence, DNA, mRNA, amino
+        dna = genome_sequence.seq
+        m_rna = dna.transcribe()
+        amino = m_rna.translate(table=1, cds=False)
 
+        results = "DNA structure :\t{}\n M_RNA structure :\t  {}\n AMINO structure:\t {}".format(dna[:80], m_rna[:80], amino[:80])
+        print(results)
+
+        return amino
+
+    @staticmethod
     def protein_dataframe():
-        pass
+        """ 
+        take the data from amino in variable load_data, use split(), and store in protein variable.
+        convert the data to variable and return df
+        
+        """
+        amino = load_data()
+        Proteins = amino.split('*')
+        df = pd.DataFrame(Proteins)
 
+        return df
 if __name__ == '__main__':
     Genome = Genome()
     Genome.load_data('MN908947.fna')
+    Genome.protein_dataframe()
